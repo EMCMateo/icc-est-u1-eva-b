@@ -1,6 +1,9 @@
+import Controller.BookController;
+import Models.Book;
+import View.viewConsole;
 public class App {
     public static void main(String[] args) throws Exception {
-
+        viewConsole view = new viewConsole();
         Book[] books = {
                 new Book("Clean Code", 2008),
                 new Book("The Pragmatic Programmer", 1999),
@@ -34,5 +37,17 @@ public class App {
                 new Book("The Elements of Statistical Learning", 2001)
         };
 
+        view.showMessage("Lista de libros antes de ordenar:");
+        view.mostrarBook(books);
+
+        BookController controller = new BookController(view);
+
+        controller.sortByInsercionName(books, "Modern Operating Systems");
+       
     }
-}
+
+
+        
+
+    }
+
